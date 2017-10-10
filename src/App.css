@@ -5,32 +5,7 @@
   width: 100%;
   height: 100vh;
 }
-/*HOME*/
-header .header {
-  padding-top: 10%;
-  height:150px ;
-  background: -webkit-linear-gradient(black, rgba(255, 255, 0, 0));
-  background: -o-linear-gradient(black, rgba(255, 255, 0, 0));
-  background: -moz-linear-gradient(black, rgba(255, 255, 0, 0)); 
-  background: linear-gradient(black, rgba(255, 255, 0, 0)); 
-}
-home{
-  background: url("/image/fondo.jpg") center center;
-  background-size:cover;
-  background-attachment: fixed;
-  position: absolute;
-  bottom:0px;
-  right:0px;
-  left:0px;
-  margin: 0 auto;
-  padding-bottom: 5%;
-}
-header img {
-  width:30%;
-}
-.logo{
-  padding-top: 10%;
-}
+
 .borde{
   border : 5px solid red;
 }
@@ -43,14 +18,8 @@ header img {
   color:white;
   border-radius: none;
 }
-.btn{
-	margin-top: 280px;
-}
-.botonPink{
-  border-color: #D800BF;
-  color: #fff;
-  background: linear-gradient(to right, #7E00BF , #D800BF);
-}
+
+
 .navbar-brand{
   margin:0 auto;
 }
