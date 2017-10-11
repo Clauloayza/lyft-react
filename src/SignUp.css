@@ -29,11 +29,10 @@ header i{
 .btn-next {
     background:#ff00bf;
     width: 100%;
-}
-.btn-lyft{
-    width: 100%;
+    
     margin-top: 10%;
 }
+
 .input-group {
     width: 100%;
 }

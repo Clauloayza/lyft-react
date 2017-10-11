@@ -80,7 +80,7 @@ class SignUp extends Component {
 							className="btn btn-lg-12 btn-lyft btn-next" 
 						  >
 						  Next
-						  </NavLink>}ss
+						  </NavLink>}
 						
 						  {!this.state.next && <button 
 							className={this.state.checked ? "btn btn-lg-12 btn-next btn-lyft": "btn btn-lg-12 btn-next anable disabled"} disaabled={!this.state.checked} type="submit"

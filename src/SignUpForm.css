@@ -25,11 +25,7 @@ header i{
 .btn-next {
     background:#ff00bf;
     width: 100%;
-    border: none;
-    color: #fff;
-    padding: 5% 0;
-    position: absolute;
-    bottom:0;
+    
 } 
 .inner {
     position: relative;
