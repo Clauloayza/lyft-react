@@ -7,13 +7,18 @@ import {
 	NavLink,
 	Redirect
 } from 'react-router-dom'
+import './SignUpForm.css';
+
+
 
 class SignUpForm extends Component {
 
 	constructor (props) {
 		super (props);
 		this.state = {
-			goFordward : false
+			goFordward : false, 
+			validation : false,
+			next : false
 		}
 	}
 
@@ -27,30 +32,71 @@ class SignUpForm extends Component {
 			});
 		}
 
+		const validations = () => {
+			this.setState({
+				validation : true
+			});
+			if (model.name === '' && model.lastname === '' && model.email === '' && !(/\S+@\S+\.\S+/.test(model.email))){
+				this.setState({
+					next: false
+				});
+			}else{
+				this.setState({
+					next: true
+				});
+			}
+		}
+
 		return (
 			<div>
 				<header>
-					<nav className="navbar navbar-light text-center">
-						<a href="javascript:window.history.back();">
-							<i
-								className="fa fa-angle-left fa-3x"
-								aria-hidden="true" />
-						</a>
-						<div className="navbar-brand">
-							<h3>
-								Sign Up Form
-							</h3>
-
+					<div className="container">
+						<div className="row">
+							<div className="col-xs-3 text-center icono">
+								<NavLink to="/signup" className="col-xs-3 text-center icono">
+									<a><i className="glyphicon glyphicon-menu-left"></i></a> 
+								</NavLink>
+							</div>
+							<div className="col-xs-9 text-center"> 
+								<h3>Sign up</h3><br/>
+								<small>Join now for free ride credit</small>
+								<hr/>
+							</div>
 						</div>
-					</nav>
+					</div>
+					
 				</header>
-				<section className="container-fluid form">
-
-					<label className="form-check-label">
-						<input className="form-check-input" id="agreeUser" type="checkbox" onChange={onInputChange}/>
+				
+				<section className="form">
+				<div className="row">
+                <div className="col-xs-12">
+                    <div className="inner container">
+                        <input className="form-control" defaultValue='' onchange={e => model.name = e.target.value}  id="name" type="text" placeholder="First name"/>
+                        <i className="glyphicon glyphicon-user"></i>
+                    </div>
+                    {model.nombre === '' && this.state.validacion && <p className="error">Please enter a name</p>}
+                    <br/>
+					<div className="inner  container">
+                        <input className="form-control" onkeyup="" onchange="" id="lastname" type="text" placeholder="Last name"/>
+                        <i className="glyphicon glyphicon-user"></i>
+                    </div>
+                    <div id="mensajeName"></div>
+                    <br/>
+                    <div className="inner  container">
+                        <input className="form-control" onkeyup=""
+                        onchange="" id="email" type="text" placeholder="Email"/>
+                         <i className="glyphicon glyphicon-envelope"></i>
+                    </div>
+                    <div id="mensajeEmail"></div>
+				</div>
+				</div>
+				<br/>
+				<center>
+				<label className="form-check-label ">
+					<input className="form-check-input text-center" id="agreeUser" type="checkbox" onChange={onInputChange}/>
 						I agree to Lyft's <a href="lyft.com"> Terms of Service</a>
-					</label>
-
+				</label>
+				</center>
 					{
 						this.state.goFordward ?
 							<NavLink

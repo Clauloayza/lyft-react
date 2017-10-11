@@ -6,8 +6,8 @@ import {
 	NavLink,
 	Redirect
 } from 'react-router-dom';
-
 import './SignUp.css';
+
 import peru from './img/pe.png';
 import chile from './img/cl.png';
 import mexico from './img/mx.png';
@@ -24,8 +24,7 @@ class SignUp extends Component {
 		
 		this.state = {
 			currentFlag: 0,
-      showPin: false,
-      validar: false,
+      checked: false,
       next: false
 			}
 		}
@@ -33,7 +32,7 @@ class SignUp extends Component {
 	  changeFlag(num) {
 			this.setState({
 				currentFlag: num,
-				validar: false
+				checked: false
 			});
 		}
 
@@ -43,24 +42,21 @@ class SignUp extends Component {
 	  const onInputChange =(e)=> {
 			if (e.target.value.length === this.flags[this.state.currentFlag].length) {
         this.setState({
-          validar: true
-        });
+					checked: true,
+					next: true
+				});
+				model.userInfo.phone= e.target.value;
       } else {
         this.setState({
-          validar: false
+          checked: false
         });
       }
-	  }
-		const mostrarPin = () => {
-      this.setState({
-        showPin: true,
-        next: true
-      });
-    }
-	  return (
-		  <div>
-			  <section className="container form text-center">
-				  <header>
+		}
+		
+		const Header = () => {
+			return (
+				<div>
+					<header>
 					  <div className="col-xs-3 text-center icono" >
 						  <NavLink to="/home" className="col-xs-3 text-center icono">
 						  	<a><i className="glyphicon glyphicon-menu-left"></i></a> 
@@ -72,6 +68,33 @@ class SignUp extends Component {
 						<hr/>
 				  	  </div>
 				  </header>
+				</div>
+			)
+		}
+
+		const NextNav = () => {
+			return(
+				<div>
+							{this.state.next && <NavLink 
+							to = {"/signup-form" }   
+							className="btn btn-lg-12 btn-lyft btn-next" 
+						  >
+						  Next
+						  </NavLink>}ss
+						
+						  {!this.state.next && <button 
+							className={this.state.checked ? "btn btn-lg-12 btn-next btn-lyft": "btn btn-lg-12 btn-next anable disabled"} disaabled={!this.state.checked} type="submit"
+							>
+							Next
+						  </button>}
+				</div>
+			)
+		}
+		
+	  return (
+		  <div>
+			  <section className="container form text-center">
+				  <div>{Header()}</div>
 					<br/>
 					<br/>
 					<br/>
@@ -95,7 +118,7 @@ class SignUp extends Component {
                   </ul>
 								</div>
 								<span className="code"><input id="codeNumber" value={this.flags[this.state.currentFlag].cod}/></span>
-								<input id="number" type="number" className="form-control" placeholder="1122334455"
+								<input id="number" minLength='9' type="number" className="form-control" placeholder="1122334455"
 									 onKeyUp={onInputChange}
 								/>
 							</div>
@@ -103,24 +126,7 @@ class SignUp extends Component {
 							<div className="text-center"><h5>We'll send a text to verify your phone</h5></div>
 						</div>
 					</div>
-					{
-						this.state.goFordward 
-						? 
-						  <NavLink 
-							to = {"/signup-form" }   
-							className="btn btn-lg-12 btnNext btn-lyft " 
-						  >
-						  Next
-						  </NavLink>
-						:
-						  <button 
-							to = {"/signup-form"}
-							className="btn btn-lg-12 btnNext btn-lyft anable" type="submit"
-							>
-							Next
-						  </button>
-
-					  }
+					<div>{NextNav()}</div>
 				</div>
             </section>
 		  </div>
