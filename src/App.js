@@ -10,6 +10,7 @@ import './App.css';
 
 import Home from './Home';
 import SignUp from './SignUp';
+import SignCode from './SignCode';
 import SignUpForm from './SignUpForm';
 import LyftMap from './LyftMap';
 
@@ -29,6 +30,7 @@ const App = (props) => {
 				       render={() => <Redirect to= {'/home'}/>}/>
 				<Route  path="/home" render={() => <Home model={model} />}/>
 				<Route  path="/signup" render={() => <SignUp model={model} />}/>
+				<Route path="/signcode" render={() => <SignCode model={model} />}/>
 				<Route  path="/signup-form" render={() => <SignUpForm model={model} />}/>
 
 				<Route  path="/lyftmap" render={() => <LyftMap model={model} />}/>

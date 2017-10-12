@@ -16,7 +16,7 @@ const Home = ( {model} ) => {
 			<div className="container">
 				<div className="row  btns">
 					<div className="col-xs-6 col-md-6">
-						<NavLink to={"/signup"} className="btn btn-lyft btn-lg btn-block btn-signUp">
+						<NavLink to={"/lyftmap"} className="btn btn-lyft btn-lg btn-block btn-signUp">
 							Log In
 						</NavLink>
 					</div>

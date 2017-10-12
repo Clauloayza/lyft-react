@@ -45,7 +45,6 @@ class SignUp extends Component {
 					checked: true,
 					next: true
 				});
-				model.userInfo.phone= e.target.value;
       } else {
         this.setState({
           checked: false
@@ -75,15 +74,16 @@ class SignUp extends Component {
 		const NextNav = () => {
 			return(
 				<div>
-							{this.state.next && <NavLink 
-							to = {"/signup-form" }   
+							{this.state.next && 
+							<NavLink 
+							to = {"/signcode" }   
 							className="btn btn-lg-12 btn-lyft btn-next" 
 						  >
 						  Next
 						  </NavLink>}
 						
 						  {!this.state.next && <button 
-							className={this.state.checked ? "btn btn-lg-12 btn-next btn-lyft": "btn btn-lg-12 btn-next anable disabled"} disaabled={!this.state.checked} type="submit"
+							className={this.state.checked ? "btn btn-lg-12 btn-next btn-lyft": "btn btn-lg-12 btn-next anable disabled"} disabled={!this.state.checked} type="submit"
 							>
 							Next
 						  </button>}
@@ -118,7 +118,7 @@ class SignUp extends Component {
                   </ul>
 								</div>
 								<span className="code"><input id="codeNumber" value={this.flags[this.state.currentFlag].cod}/></span>
-								<input id="number" minLength='9' type="number" className="form-control" placeholder="1122334455"
+								<input id="number" minLength='9' maxLength='10' type="number" className="form-control" placeholder="1122334455"
 									 onKeyUp={onInputChange}
 								/>
 							</div>

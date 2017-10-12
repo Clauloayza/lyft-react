@@ -47,6 +47,6 @@ header i{
 }
 #codeNumber{
     border: inherit;
-    width: 14%;
+    width: 25px;
     float: left;
 }
